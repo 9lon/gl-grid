@@ -1,6 +1,6 @@
 {
-  "name": "gl-data-table",
-  "homepage": "https://github.com/9lon/gl-data-table",
+  "name": "gl-grid",
+  "homepage": "https://github.com/9lon/gl-grid",
   "authors": [
     "pongpanot-t <pongpanot.t@nexts-corp.com>"
   ],
@@ -15,11 +15,9 @@
     "tests"
   ],
   "devDependencies": {
-    "paper-input": "Polymer/polymer#^1.6.1"
+    "polymer": "Polymer/polymer#^1.6.1"
   },
   "dependencies": {
-    "iron-resizable-behavior": "PolymerElements/iron-resizable-behavior#^1.0.5",
-    "css-element-queries": "^0.3.2",
     "eqcss": "^1.2.1"
   }
 }
