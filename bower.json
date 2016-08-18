@@ -1,0 +1,25 @@
+{
+  "name": "gl-data-table",
+  "homepage": "https://github.com/9lon/gl-data-table",
+  "authors": [
+    "pongpanot-t <pongpanot.t@nexts-corp.com>"
+  ],
+  "description": "Grid for components",
+  "main": "",
+  "license": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "paper-input": "Polymer/polymer#^1.6.1"
+  },
+  "dependencies": {
+    "iron-resizable-behavior": "PolymerElements/iron-resizable-behavior#^1.0.5",
+    "css-element-queries": "^0.3.2",
+    "eqcss": "^1.2.1"
+  }
+}
