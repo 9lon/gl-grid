@@ -1,11 +1,10 @@
-<!-- build:import -->
-    <link rel="import" href="../bower_components/polymer/polymer.html">
-<!-- endbuild -->
+<link rel="import" href="../polymer/polymer.html">
+<script src="../eqcss/EQCSS.min.js"></script>
 
-<dom-module id="gl-grid">
+<dom-module id="gl-grid-element">
   <template>
     <style>
-        
+
         .container-fluid,
         .container {
         margin-right: auto;
@@ -300,7 +299,7 @@
         order: 1;
         }
 
-        @media only screen and (min-width: 48em) {
+        @element ".gl-grid-element" and (min-width: 48em) {
         .container {
             width: 49rem;
         }
@@ -551,7 +550,7 @@
         }
         }
 
-        @media only screen and (min-width: 64em) {
+        @element ".gl-grid-element" and (min-width: 64em) {
         .container {
             width: 65rem;
         }
@@ -802,7 +801,7 @@
         }
         }
 
-        @media only screen and (min-width: 75em) {
+        @element ".gl-grid-element" and (min-width: 75em) {
         .container {
             width: 76rem;
         }
