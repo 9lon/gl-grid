@@ -1,0 +1,76 @@
+<!-- build:import -->
+    <link rel="import" href="../bower_components/polymer/polymer.html">
+    <link rel="import" href="../bower_components/iron-resizable-behavior/iron-resizable-behavior.html">
+<!-- endbuild -->
+
+<dom-module id="gl-grid-row">
+  
+    <style>
+        .container-fluid,
+        .container {
+        margin-right: auto;
+        margin-left: auto;
+        }
+
+        .container-fluid {
+        padding-right: 2rem;
+        padding-left: 2rem;
+        }
+
+        :host {
+        box-sizing: border-box;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-flex: 0;
+        -webkit-flex: 0 1 auto;
+        -ms-flex: 0 1 auto;
+        flex: 0 1 auto;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        margin-right: -0.5rem;
+        margin-left: -0.5rem;
+        }
+
+        :host.reverse {
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: reverse;
+        -webkit-flex-direction: row-reverse;
+        -ms-flex-direction: row-reverse;
+        flex-direction: row-reverse;
+        }
+    </style>
+    
+    <template>
+        <content></content>
+    </template>
+    
+    
+    <script>
+        Polymer({
+            is:'gl-grid-row',
+            behaviors:[ Polymer.IronResizableBehavior ],
+            listeners: {
+                'iron-resize': '_onIronResize'
+            },
+            _onIronResize: function() {
+                
+                this.width = this.offsetWidth;
+
+            },
+            properties:{
+                width:{
+                    type:Number,
+                    notify:true
+                }
+            }
+        });
+    </script>
+</dom-module>

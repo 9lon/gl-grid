@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Test</title>
-    <link rel="import" href="../src/gl-grid-element.html">
+    <link rel="import" href="../src/gl-grid-classes.html">
 </head>
 <body>
     <my-el></my-el>
 
     <dom-module id="my-el">
-        <style include="gl-grid-element">
+        <style include="gl-grid-classes">
             :host{
                 /*--main-bg-color: brown;*/
             }
@@ -18,7 +18,6 @@
         
         <template>
             
-            <div class="gl-grid-element">
                 <div class="row" style="margin:10px;">
                     <div class="col-xs-12 col-sm-3 col-md-4 col-lg-1">
                         1
@@ -36,8 +35,6 @@
                         5
                     </div>
                 </div>
-            </div>
-
 
         </template>
     

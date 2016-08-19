@@ -1,0 +1,86 @@
+<!-- build:import -->
+    
+<!-- endbuild -->
+
+<dom-module id="gl-grid-col">
+  
+    
+    
+    <template>
+        <style>
+            :host{
+
+                box-sizing: border-box;
+                -webkit-box-flex: 0;
+                -webkit-flex: 0 0 auto;
+                -ms-flex: 0 0 auto;
+                flex: 0 0 auto;
+                padding-right: 0.5rem;
+                padding-left: 0.5rem;
+
+                -webkit-box-flex: 1;
+                -webkit-flex-grow: 1;
+                -ms-flex-positive: 1;
+                flex-grow: 1;
+                -webkit-flex-basis: var(--data-responsive-element);
+                -ms-flex-preferred-size: var(--data-responsive-element);
+                flex-basis: var(--data-responsive-element);
+                max-width: var(--data-responsive-element);
+            } 
+
+        </style>
+        <content></content>
+        <button id="xxx" on-tap="testclick">dd</button>
+    </template>
+    
+    
+    <script>
+        Polymer({
+            is:'gl-grid-col',
+            properties:{
+                xs:{
+                    type:String
+                },
+                sm:{
+                    type:String
+                },
+                md:{
+                    type:String
+                },
+                lg:{
+                    type:String
+                },
+                colArr:{
+                    type:Array,
+                    value:['8.333%','16.667%','25%','33.333%','41.667%','50%','58.333%','66.667%','75%','83.333%','91.667%','100%']
+                },
+                width:{
+                    type:Number
+                }
+            },
+            observers:['obWidth(width)'],
+            attached:function(){
+                this.changeSize(this.width);
+            },
+            obWidth:function(w){
+                this.changeSize(w);
+            },
+            changeSize:function(w){
+                var size;
+
+                if(w>1200){
+                    size = this.lg;
+                }else if(w>1024){
+                    size = this.md;
+                }else if(w>768){
+                    size = this.sm;
+                }else{
+                    size = this.xs;
+                }
+
+                this.customStyle['--data-responsive-element'] = this.colArr[parseInt(size)-1];
+                this.updateStyles();
+            }
+        });
+    </script>
+</dom-module>
