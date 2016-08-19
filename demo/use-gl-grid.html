@@ -24,17 +24,17 @@
             <div style="background-color:#3399ff;">
 
             
-                <gl-grid-row width="{{width}}">
-                    <gl-grid-col width="[[width]]" xs="12" sm="6" md="4" lg="2">
+                <gl-grid-row width="{{getWidth}}">
+                    <gl-grid-col width="[[getWidth]]" xs="12" sm="6" md="4" lg="2">
                         1
                     </gl-grid-col>
-                    <gl-grid-col width="[[width]]" xs="12" sm="6" md="4" lg="2">
+                    <gl-grid-col width="[[getWidth]]" xs="12" sm="6" md="4" lg="2">
                         2
                     </gl-grid-col>
-                    <gl-grid-col width="[[width]]" xs="12" sm="6" md="4" lg="2">
+                    <gl-grid-col width="[[getWidth]]" xs="12" sm="6" md="4" lg="2">
                         3
                     </gl-grid-col>
-                    <gl-grid-col width="[[width]]" xs="12" sm="6" md="4" lg="2">
+                    <gl-grid-col width="[[getWidth]]" xs="12" sm="6" md="4" lg="2">
                         4
                     </gl-grid-col>
                 </gl-grid-row>
@@ -43,12 +43,7 @@
         </template>
         <script>
             Polymer({
-                is: 'my-element',
-                properties:{
-                    width:{
-                        type:Number
-                    }
-                }
+                is: 'my-element'
             });
         </script>
     </dom-module>
