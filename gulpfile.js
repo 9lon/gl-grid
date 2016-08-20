@@ -20,7 +20,7 @@ gulp.task('htmlReplace2',function(){
                 src:null,
                 tpl: 
                 '<link rel="import" href="../polymer/polymer.html">\n'
-                +'<link rel="import" href="../iron-resizable-behavior/iron-resizable-behavior.html">'
+                +'<script src="../element-resize-detector/dist/element-resize-detector.min.js"></script>'
         }
     }))
     .pipe(gulp.dest(''));

@@ -1,6 +1,5 @@
 <link rel="import" href="../polymer/polymer.html">
-<link rel="import" href="../iron-resizable-behavior/iron-resizable-behavior.html">
-
+<script src="../element-resize-detector/dist/element-resize-detector.min.js"></script>
 <dom-module id="gl-grid-row">
   
     <style>
@@ -16,6 +15,7 @@
         }
 
         :host {
+
         box-sizing: border-box;
         display: -webkit-box;
         display: -webkit-flex;
@@ -35,6 +35,7 @@
         flex-wrap: wrap;
         margin-right: -0.5rem;
         margin-left: -0.5rem;
+
         }
 
         :host.reverse {
@@ -47,28 +48,42 @@
     </style>
     
     <template>
-        <content></content>
+            <content></content>
     </template>
     
     
     <script>
+        
+
         Polymer({
             is:'gl-grid-row',
-            behaviors:[ Polymer.IronResizableBehavior ],
-            listeners: {
-                'iron-resize': '_onIronResize'
-            },
-            _onIronResize: function() {
-                
-                this.width = this.offsetWidth;
-
-            },
             properties:{
                 width:{
                     type:Number,
                     notify:true
                 }
+            },
+            ready:function(){
+                this.erd = elementResizeDetectorMaker();
+                
+            },
+            getWidth:(element)=>{
+                //console.log(element.offsetWidth);
+                this.set('width',element.offsetWidth);
+            },
+            attached:function(){
+                this.erd.listenTo(this,(element)=>{
+                    this.set('width',element.offsetWidth);
+                    this.customStyle['--data-show-hide'] = 'block';
+                    this.updateStyles();
+                });
+            },
+            detached:function(){
+                this.erd.removeListener(this,(element)=>{
+                    this.set('width',element.offsetWidth);
+                });
             }
+            
         });
     </script>
 </dom-module>

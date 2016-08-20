@@ -1,5 +1,4 @@
 <link rel="import" href="../polymer/polymer.html">
-
 <dom-module id="gl-grid-col">
   
     
@@ -27,8 +26,10 @@
             } 
 
         </style>
-        <content></content>
-        <button id="xxx" on-tap="testclick">dd</button>
+        <template is="dom-if" if="{{width}}">
+            <content></content>
+        </template>
+        <!--<button id="xxx" on-tap="testclick">dd</button>-->
     </template>
     
     

@@ -18,6 +18,6 @@
     "polymer": "Polymer/polymer#^1.6.1"
   },
   "dependencies": {
-    "iron-resizable-behavior": "PolymerElements/iron-resizable-behavior#^1.0.5"
+    "element-resize-detector": "^1.1.7"
   }
 }
