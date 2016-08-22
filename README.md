@@ -30,12 +30,14 @@ Then simply apply the classes to any element.
 
 ```html
 <div class="row">
-    <div class="col-sm-12 col-md-6">Col 1</div>
-    <div class="col-sm-12 col-md-6">Col 2</div>
-    <div class="col-sm-12 col-md-6">Col 3</div>
-    <div class="col-sm-12 col-md-6">Col 4</div>
+    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2">Col 1</div>
+    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2">Col 2</div>
+    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2">Col 3</div>
+    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2">Col 4</div>
 </div>
 ```
+more [example](http://flexboxgrid.com/).
+
 
 ## Credits
-CSS from [flexboxgrid](https://github.com/kristoferjoseph/flexboxgrid)
+CSS from [flexboxgrid](http://github.com/kristoferjoseph/flexboxgrid).
