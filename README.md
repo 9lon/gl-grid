@@ -20,11 +20,22 @@ To use layout classes import the gl-grid-classes file.
 <link rel="import" href="bower_components/gl-grid/gl-grid-classes.html">
 ```
 
-import classes in an element
+Import classes in an element.
 
 ```html
-<style include="iron-flex iron-flex-alignment">
-...
-</style>
-
+<style include="gl-grid-classes"></style>
 ```
+
+Then simply apply the classes to any element.
+
+```html
+<div class="row">
+    <div class="col-sm-12 col-md-6">Col 1</div>
+    <div class="col-sm-12 col-md-6">Col 2</div>
+    <div class="col-sm-12 col-md-6">Col 3</div>
+    <div class="col-sm-12 col-md-6">Col 4</div>
+</div>
+```
+
+## Credits
+CSS from [flexboxgrid](https://github.com/kristoferjoseph/flexboxgrid)
