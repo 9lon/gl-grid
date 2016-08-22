@@ -36,7 +36,7 @@ Then simply apply the classes to any element.
     <div class="col-xs-12 col-sm-6 col-md-4 col-lg-2">Col 4</div>
 </div>
 ```
-more [example](http://flexboxgrid.com/).
+[Demo](https://github.com/9lon/gl-grid/blob/master/demo/use-gl-grid-classes.html) or more [example](http://flexboxgrid.com/).
 
 
 ## Credits
