@@ -1,4 +1,5 @@
 <link rel="import" href="../polymer/polymer.html">
+
 <dom-module id="gl-grid-col">
   
     
@@ -49,6 +50,9 @@
                 lg:{
                     type:String
                 },
+                grid:{
+                    type:Array
+                },
                 colArr:{
                     type:Array,
                     value:['8.333%','16.667%','25%','33.333%','41.667%','50%','58.333%','66.667%','75%','83.333%','91.667%','100%']
@@ -65,21 +69,84 @@
                 this.changeSize(w);
             },
             changeSize:function(w){
-                var size;
+                if(typeof w != "undefined"){
+                    var size;
+                    var last;
+                    if(typeof this.grid == "undefined"){
 
-                if(w>1200){
-                    size = this.lg;
-                }else if(w>1024){
-                    size = this.md;
-                }else if(w>768){
-                    size = this.sm;
-                }else{
-                    size = this.xs;
+                        if(w>1200){
+                            size = this.lg;
+                        }else if(w>1024){
+                            size = this.md;
+                        }else if(w>768){
+                            size = this.sm;
+                        }else{
+                            if(typeof this.xs == "undefined"){
+                                if(typeof this.md == "undefined"){
+                                    if(typeof this.gl == "undefined"){
+                                        size = "12";
+                                    }else{
+                                        size = this.lg;
+                                    }
+                                }else{
+                                   size = this.md; 
+                                }
+                            }else{
+                                size = this.xs;
+                            }
+                        }
+
+                        size = parseInt(size);
+
+                    }else{
+
+                        for (i = 0; i < this.grid.length; i++) {
+                            if(i+1==this.grid.length){
+                                last = this.grid[i][1];
+                            }
+                            if (w > this.grid[i][0]) {
+                                size = this.grid[i][1];
+                                break;
+                            }
+                        }
+                        if(typeof size == "undefined"){
+                            if(typeof last == "undefined"){
+                                size = 12;
+                            }else{
+                                size = last;
+                            }
+                        }
+
+                    }
+
+                    this.customStyle['--data-responsive-element'] = this.colArr[size-1];
+                    this.updateStyles();
+
                 }
+                
+            },
+            ready:function(){
 
-                this.customStyle['--data-responsive-element'] = this.colArr[parseInt(size)-1];
-                this.updateStyles();
+                if(typeof this.grid != "undefined"){
+
+                    var grid = this.grid;
+
+                    grid.sort(sortFunction);
+
+                    function sortFunction(a, b) {
+                        if (a[0] === b[0]) {
+                            return 0;
+                        }
+                        else {
+                            return (a[0] > b[0]) ? -1 : 1;
+                        }
+                    }
+
+                    this.grid = grid;
+                }
+                
             }
+            
         });
     </script>
 </dom-module>
