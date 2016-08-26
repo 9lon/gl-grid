@@ -8,6 +8,8 @@
         <style>
             :host{
 
+                --data-responsive-display:none;
+
                 box-sizing: border-box;
                 -webkit-box-flex: 0;
                 -webkit-flex: 0 0 auto;
@@ -24,13 +26,12 @@
                 -ms-flex-preferred-size: var(--data-responsive-element);
                 flex-basis: var(--data-responsive-element);
                 max-width: var(--data-responsive-element);
+
+                display:var(--data-responsive-display);
             } 
 
         </style>
-        <template is="dom-if" if="{{width}}">
-            <content></content>
-        </template>
-        <!--<button id="xxx" on-tap="testclick">dd</button>-->
+        <content></content>
     </template>
     
     
@@ -59,6 +60,10 @@
                 },
                 width:{
                     type:Number
+                },
+                hide:{
+                    type:Boolean,
+                    value:true
                 }
             },
             observers:['obWidth(width)'],
@@ -119,13 +124,22 @@
 
                     }
 
+        
+                    if(size == 0){
+                        this.customStyle['--data-responsive-display'] = "none";
+                    }else{
+                        this.customStyle['--data-responsive-display'] = "flex";
+                    }
+
+
                     this.customStyle['--data-responsive-element'] = this.colArr[size-1];
                     this.updateStyles();
-
+                    
                 }
                 
             },
             ready:function(){
+
 
                 if(typeof this.grid != "undefined"){
 
