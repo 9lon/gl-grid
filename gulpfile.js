@@ -1,43 +1,11 @@
 var gulp = require('gulp');
-var htmlReplace = require('gulp-html-replace');
+var replace = require('gulp-replace');
 
-gulp.task('htmlReplace',function(){
-     gulp.src('src/gl-grid-classes.html')
-    .pipe(htmlReplace({
-        'import': {
-                src:null,
-                tpl: 
-                '<link rel="import" href="../polymer/polymer.html">'
-        }
-    }))
-    .pipe(gulp.dest(''));
-});
-
-gulp.task('htmlReplace2',function(){
-     gulp.src('src/gl-grid-row.html')
-    .pipe(htmlReplace({
-        'import': {
-                src:null,
-                tpl: 
-                '<link rel="import" href="../polymer/polymer.html">\n'
-                +'<script src="../element-resize-detector/dist/element-resize-detector.min.js"></script>'
-        }
-    }))
-    .pipe(gulp.dest(''));
-});
-
-gulp.task('htmlReplace3',function(){
-     gulp.src('src/gl-grid-col.html')
-    .pipe(htmlReplace({
-        'import': {
-                src:null,
-                tpl: 
-                '<link rel="import" href="../polymer/polymer.html">'
-        }
-    }))
+gulp.task('replace',function(){
+     gulp.src('src/*.html')
+    .pipe(replace('../bower_components/','../../'))
     .pipe(gulp.dest(''));
 });
 
 
-
-gulp.task('default', ['htmlReplace','htmlReplace2','htmlReplace3']);
+gulp.task('default', ['replace']);
