@@ -10,7 +10,7 @@ Latest ✔ | Latest ✔ | Latest ✔ |
 Using bower:
 
 ```bash
-$ bower install 9lon/gl-grid
+$ bower install glon-gl-grid
 ```
 
 ## Installing
